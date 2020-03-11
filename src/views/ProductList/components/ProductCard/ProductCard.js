@@ -87,36 +87,36 @@ const ProductCard = props => {
       className={clsx(classes.root, className)}
      
     >
-    <Button  component={ProductCardRouterLink} to={"/settings"}>
+      <Button component={ProductCardRouterLink} to={"/productpage"} >
+    
       
 
-    <CardContent className={classes.infoContainer}>
-        <div className={classes.imageContainer}>
-          <img
-            alt="Product"
-            className={classes.image}
-            src={product.imageUrl}
-          />
-        </div>
-        <Typography
-          align="center"
-          gutterBottom
-          variant="h4"
-        >
-          {product.title}
-        </Typography>
-        <Typography
-          align="center"
-          variant="body1"
-        >
-          {product.description}
-        </Typography>
-      </CardContent>
-      <Divider className={classes.dividerClass} />
+      <CardContent className={classes.infoContainer}>
+          <div className={classes.imageContainer}>
+            <img
+              alt="Product"
+              className={classes.image}
+              src={product.imageUrl}
+            />
+          </div>
+          <Typography
+            align="center"
+            gutterBottom
+            variant="h4"
+          >
+            {product.title}
+          </Typography>
+          <Typography
+            align="center"
+            variant="body1"
+          >
+            {product.description}
+          </Typography>
+        </CardContent>
+        <Divider className={classes.dividerClass} />
      
-     
-    </Button>
-    
+   
+      </Button>
     <CardActions>
         <Grid
           container
