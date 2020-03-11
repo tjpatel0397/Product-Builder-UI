@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
+import Button from '@material-ui/core/ButtonBase';
+import { NavLink as RouterLink } from 'react-router-dom';
+
 import {
   Card,
   CardContent,
@@ -60,6 +63,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+const ProductCardRouterLink = forwardRef((props, ref) => (
+  <div
+    ref={ref}
+    style={{ flexGrow: 1 }}
+  >
+    <RouterLink {...props} />
+  </div>
+));
+
+
+
 const ProductCard = props => {
   const { className, product, ...rest } = props;
 
@@ -67,10 +82,15 @@ const ProductCard = props => {
 
   return (
     <Card
+      
       {...rest}
       className={clsx(classes.root, className)}
+     
     >
-      <CardContent className={classes.infoContainer}>
+    <Button  component={ProductCardRouterLink} to={"/settings"}>
+      
+
+    <CardContent className={classes.infoContainer}>
         <div className={classes.imageContainer}>
           <img
             alt="Product"
@@ -93,7 +113,11 @@ const ProductCard = props => {
         </Typography>
       </CardContent>
       <Divider className={classes.dividerClass} />
-      <CardActions>
+     
+     
+    </Button>
+    
+    <CardActions>
         <Grid
           container
           justify="space-between"
@@ -125,7 +149,8 @@ const ProductCard = props => {
             </Typography>
           </Grid>
         </Grid>
-      </CardActions>
+    </CardActions>
+   
     </Card>
   );
 };
